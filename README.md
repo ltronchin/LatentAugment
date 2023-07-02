@@ -1,1 +1,87 @@
-# LatentAugment
+# LatentAugment: Data Augmentation via Guided manipulation of GANs Latent Space
+
+This repository contains the official PyTorch implementation of LatentAugment, a Data Augmentation (DA) policy that steers the Generative Adversarial Network (GAN) latent space to increase the diversity and quality of generated samples.
+
+LatentAugment:
+- Increases the diversity and quality of synthetic samples from GANs;
+- Increases the effectiveness of GANs when used for DA; 
+- Allows more complex types of transformations to common DA methods (e.g., rotation, translation, and scaling);
+- Does not require prior knowledge of the dataset;
+- Can be implemented with any GAN;
+
+![alt text](./docs/gif_latentaugment.gif "Augmentation with LatentAugment")
+
+## Installation
+
+### Clone the repository
+
+```bash
+git clone
+cd LatentAugment
+```
+
+### Install dependencies
+For pip users, please type the following commanda to install dependencies:
+```bash
+pip install -r requirements.txt
+```
+For Conda users, you can create a new Conda environment using the following command:
+```bash
+conda env create -f environment.yml
+```
+The code was tested with Python 3.9.12, PyTorch 1.7.1, CUDA 11.7 and Ubuntu 22.04.2 LTS.
+For more informations about the requirements, please check the requirements.txt or environment.yml files.
+All the experiments used a single NVIDIA RTX A5000 GPU.
+
+## Usage
+### Prerequisites
+
+- Pretrained GAN model on the target dataset.
+- Latent codes of real training samples.
+- Create your own dataset module, check the page [data](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix/blob/master/docs/datasets.md) for more details.
+
+In our experiments we used StyleGAN2 (SG2) and the inversion procedure from in the official SG2 repository [stylegan2-ada-pytorch](https://github.com/NVlabs/stylegan2-ada-pytorch.git).
+You are free to use whatever GAN or inversion procedure you want.
+
+To use LatentAugment in your downstream applications please follow the steps below:
+```python
+from augments import create_augment
+from data import create_dataset
+
+from options.aug_options import AugOptions
+
+opt = AugOptions().parse()  # get training options
+
+dataset = create_dataset(opt)  # create the dataset object given opt.dataset_mode and other options
+augment = create_augment(opt)  # create the augment object given opt.aug and other options
+
+for i, data in enumerate(dataset):  # loop on training data
+    
+        # Performe augmentation.
+        augment.set_input(data) # Set input for augmentation.
+        augment.forward() # Perform the augmentation.
+        data_aug = augment.get_output() # Get output from augmentation.
+        
+        # Train the downstream model.
+        # ...
+```
+
+- See the [options](./options) folder for more details about the options.
+- See the [data](./data) folder for more details about the dataset module.
+- See the [augments](./augments) folder for more details about the augmentation methods.
+
+## Citation
+If you use this code in your research, please cite our paper: [LatentAugment: Data Augmentation via Guided manipulation of GANs Latent Space](https://arxiv.org/abs/2106.05237)
+
+## Acknowledgements
+This code is based on the following repositories:
+- [stylegan2-ada-pytorch](https://github.com/NVlabs/stylegan2-ada-pytorch.git)
+- [pytorch-CycleGAN-and-pix2pix](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix.git)
+
+## Contact for Issues
+
+If you have any problem on the code or you simply want to have a virtual coffee about Generative AI with me, please feel free to contact me at: [l.tronchin@unicampus.it](l.tronchin@unicampus.it)!
+
+## License
+
+This code is released under the MIT License.

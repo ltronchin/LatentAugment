@@ -1,0 +1,33 @@
+name: latentaugment
+channels:
+- pytorch
+- defaults
+- nvidia
+dependencies:
+- python >= 3.8
+- pytorch=1.9.1
+- cudatoolkit=11.1
+- ninja==1.10.2
+- scipy
+- pillow=8.3.1
+- pip
+- pip:
+  - dominate==2.4.0
+  - torchvision==0.10.1
+  - numpy>=1.20
+  - visdom==0.1.8
+  - openpyxl
+  - click
+  - albumentations
+  - hyperopt
+  - matplotlib
+  - pandas
+  - torchmetrics
+  - lpips
+  - kornia
+  - scikit-posthocs
+  - seaborn
+  - bokeh
+  - umap-learn
+  - ipython
+  - optuna
