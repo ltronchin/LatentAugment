@@ -4,12 +4,12 @@ This repository contains the official PyTorch implementation of LatentAugment, a
 
 LatentAugment:
 - Increases the diversity and quality of synthetic samples from GANs;
-- Increases the effectiveness of GANs when used for DA; 
+- Increases the effectiveness of GANs when used for DA purpose; 
 - Allows more complex types of transformations to common DA methods (e.g., rotation, translation, and scaling);
 - Does not require prior knowledge of the dataset;
 - Can be implemented with any GAN;
 
-![alt text](./docs/gif_latentaugment.gif "Augmentation with LatentAugment")
+![alt text](./docs/img_hstack.gif "Augmentation with LatentAugment")
 
 ## Installation
 
@@ -29,7 +29,7 @@ For Conda users, you can create a new Conda environment using the following comm
 ```bash
 conda env create -f environment.yml
 ```
-The code was tested with Python 3.9.12, PyTorch 1.7.1, CUDA 11.7 and Ubuntu 22.04.2 LTS.
+The code was tested with Python 3.9.12, PyTorch 1.9.1, CUDA 11.1 and Ubuntu 22.04.2 LTS.
 For more informations about the requirements, please check the requirements.txt or environment.yml files.
 All the experiments used a single NVIDIA RTX A5000 GPU.
 
@@ -57,7 +57,7 @@ augment = create_augment(opt)  # create the augment object given opt.aug and oth
 
 for i, data in enumerate(dataset):  # loop on training data
     
-        # Performe augmentation.
+        # Perform augmentation.
         augment.set_input(data) # Set input for augmentation.
         augment.forward() # Perform the augmentation.
         data_aug = augment.get_output() # Get output from augmentation.
@@ -80,7 +80,10 @@ This code is based on the following repositories:
 
 ## Contact for Issues
 
-If you have any problem on the code or you simply want to have a virtual coffee about Generative AI with me, please feel free to contact me at: [l.tronchin@unicampus.it](l.tronchin@unicampus.it)!
+If you have any questions or if you are just interested in having a virtual coffee chat about Generative AI, 
+please don't hesitate to reach out to me at: [l.tronchin@unicampus.it](l.tronchin@unicampus.it).
+
+May be the AI be with you!
 
 ## License
 
