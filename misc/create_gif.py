@@ -39,7 +39,7 @@ if __name__ == '__main__':
     reports_dir = './reports/'
 
     #create_gif_hstack(os.path.join(reports_dir, dataset_name, analysis_name, 'all'), duration=0.5, output_name='img.gif')
-    create_gif(os.path.join(reports_dir, dataset_name, analysis_name, 'pp'), duration=0.5, output_name='img.gif')
-    #create_gif(os.path.join(reports_dir, dataset_name, analysis_name, 'latent'), duration=0.5, output_name='latent.gif')
+    create_gif(os.path.join(reports_dir, dataset_name, analysis_name, 'img'), duration=0.5, output_name='img.gif')
+    create_gif(os.path.join(reports_dir, dataset_name, analysis_name, 'latent'), duration=0.5, output_name='latent.gif')
 
     print('May be the force with you.')

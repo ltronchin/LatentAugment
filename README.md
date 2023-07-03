@@ -9,7 +9,10 @@ LatentAugment:
 - Does not require prior knowledge of the dataset;
 - Can be implemented with any GAN;
 
-![alt text](./docs/img_hstack.gif "Augmentation with LatentAugment")
+<p float="left">
+  <img src="./docs/gif_latentaugment.gif" width="512" height="256" />
+  <img src="./docs/latent.gif" width="256" height="256" /> 
+</p>
 
 ## Installation
 
