@@ -10,8 +10,7 @@ LatentAugment:
 - Can be implemented with any GAN;
 
 <p float="left">
-  <img src="./docs/gif_latentaugment.gif" width="512" height="256" />
-  <img src="./docs/latent.gif" width="256" height="256" /> 
+  <img src="docs/img_text.gif" width="512" height="256" />
 </p>
 
 ## Installation
