@@ -73,7 +73,7 @@ for i, data in enumerate(dataset):  # loop on training data
 - See the [augments](./augments) folder for more details about the augmentation methods.
 
 ## Citation
-If you use this code in your research, please cite our paper: [LatentAugment: Data Augmentation via Guided manipulation of GANs Latent Space](https://arxiv.org/abs/2106.05237)
+If you use this code in your research, please cite our paper: [LatentAugment: Data Augmentation via Guided manipulation of GANs Latent Space]()
 
 ## Acknowledgements
 This code is based on the following repositories:
@@ -82,7 +82,7 @@ This code is based on the following repositories:
 
 ## Contact for Issues
 
-If you have any questions or if you are just interested in having a virtual coffee chat about Generative AI, 
+If you have any questions or if you are just interested in having a virtual coffee about Generative AI, 
 please don't hesitate to reach out to me at: [l.tronchin@unicampus.it](l.tronchin@unicampus.it).
 
 May be the AI be with you!
