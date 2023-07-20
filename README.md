@@ -72,6 +72,10 @@ for i, data in enumerate(dataset):  # loop on training data
 - See the [data](./data) folder for more details about the dataset module.
 - See the [augments](./augments) folder for more details about the augmentation methods.
 
+## Results
+
+[Umap](docs/umap_projection.html)
+
 ## Citation
 If you use this code in your research, please cite our paper: [LatentAugment: Data Augmentation via Guided manipulation of GANs Latent Space]()
 
