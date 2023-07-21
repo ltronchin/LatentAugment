@@ -2,10 +2,11 @@
 
 This repository contains the official PyTorch implementation of LatentAugment, a Data Augmentation (DA) policy that steers the Generative Adversarial Network (GAN) latent space to increase the diversity and quality of generated samples.
 
-LatentAugment:
+## LatentAugment Features
+
 - Increases the diversity and quality of synthetic samples from GANs;
 - Increases the effectiveness of GANs when used for DA purpose; 
-- Allows more complex types of transformations to common DA methods (e.g., rotation, translation, and scaling);
+- Allows  more complex types of transformations to common DA methods (e.g., rotation, translation, and scaling);
 - Does not require prior knowledge of the dataset;
 - Can be implemented with any GAN;
 
@@ -74,7 +75,18 @@ for i, data in enumerate(dataset):  # loop on training data
 
 ## Results
 
-[Umap](docs/umap_projection.html)
+<p float="left">
+  <img src="docs/umap_reduced_full_inverted_set_True.png"/>
+</p>
+
+We use UMAP dimensionality reduction to visualise the behaviour of LatentAugment and SG2 synthetic samples in relation to real image latent codes.
+We initially fit UMAP using the latent codes of real samples, which are depicted as blue stars. 
+Then, we project the latent codes of the real, LatentAugment, and SG2 samples onto this space; LatentAugment samples are represented by green circles and SG2 samples by white triangles
+
+We observe that SG2 samples only cover a small portion of the real manifold, while LatentAugment samples cover all the real manifold. 
+Moreover, LatentAugment samples do not overlap the real samples ensuring diversity. Yet, these samples are near the real latent codes, suggesting high-quality generation.
+
+For a complete visualisation of the UMAP manifold, download the [interactive plot](https://ltronchin.github.io/LatentAugment/) created using Bokeh. We suggest to open it on your browser.
 
 ## Citation
 If you use this code in your research, please cite our paper: [LatentAugment: Data Augmentation via Guided manipulation of GANs Latent Space]()

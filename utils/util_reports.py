@@ -95,7 +95,9 @@ def scatter_plot(output_dir, data, label, output_name='umap_plot', labels_name=N
     # Add axis labels and title.
     plt.xlabel('Embedding 1')
     plt.ylabel('Embedding 2')
-    plt.legend()
+    plt.xlim([5, 10.9])
+    plt.ylim([-1, 4.3])
+    plt.legend(loc='upper left')
 
     fig.savefig(os.path.join(output_dir, f"{output_name}.png"), dpi=400, format='png')
     # Show the plot.
