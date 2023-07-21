@@ -24,14 +24,30 @@ cd LatentAugment
 ```
 
 ### Install dependencies
-For pip users, please type the following commanda to install dependencies:
+
+#### Using virtualenv
+1) First create a Python virtual environment (optional) using the following command:
+```bash
+python -m venv latentaugment
+```
+2) Activate the virtual environment using the following command:
+```bash
+source latentaugment/bin/activate
+```
+3) Install the dependencies using the following command:
 ```bash
 pip install -r requirements.txt
 ```
+#### Using Conda
 For Conda users, you can create a new Conda environment using the following command:
 ```bash
 conda env create -f environment.yml
 ```
+Then, activate the environment using the following command:
+```bash
+conda activate latentaugment
+```
+
 The code was tested with Python 3.9.12, PyTorch 1.9.1, CUDA 11.1 and Ubuntu 22.04.2 LTS.
 For more informations about the requirements, please check the requirements.txt or environment.yml files.
 All the experiments used a single NVIDIA RTX A5000 GPU.
