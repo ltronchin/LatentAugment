@@ -105,7 +105,7 @@ Moreover, LatentAugment samples do not overlap the real samples ensuring diversi
 For a complete visualisation of the UMAP manifold, download the [interactive plot](https://ltronchin.github.io/LatentAugment/) created using Bokeh. We suggest to open it on your browser.
 
 ## Citation
-If you use this code in your research, please cite our paper: [LatentAugment: Data Augmentation via Guided manipulation of GANs Latent Space]()
+If you use this code in your research, please cite our paper: [LatentAugment: Data Augmentation via Guided manipulation of GANs Latent Space](http://arxiv.org/abs/2307.11375)
 
 ## Acknowledgements
 This code is based on the following repositories:
