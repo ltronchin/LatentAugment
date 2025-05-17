@@ -52,7 +52,7 @@ augment_symbols = {'LatentAugment': 'o', 'RandomAugment': '^'}
 augment_colours = {'LatentAugment': [0 / 255, 150 / 255, 136 / 255], 'RandomAugment':'white'} #augment_colours = {'LatentAugment': 'limegreen', 'RandomAugment': 'lightgray'}
 augment_alphas = {'LatentAugment': 1.0, 'RandomAugment': 1.0}
 augment_label = {'LatentAugment': 'LatentAugment', 'RandomAugment': 'Standard SG2 DA'}
-modalities_label = {'MR_nonrigid_CT': 'CT', 'MR_MR_T2': 'MRI'}
+modalities_label = {'LE': 'LE', 'DES': 'DES'} # {'MR_nonrigid_CT': 'CT', 'MR_MR_T2': 'MRI'}
 dump_pr=True
 dump_grid=False
 bubble_name= '' #'fid'
@@ -66,9 +66,9 @@ def generate_mapping(n):
 
 report_dir = './reports/'
 exp_name = 'aug_pr_0' # 'aug_r' # 'aug_pr_ablation'# 'aug_pr'
-dataset = 'Pelvis_2.1_repo_no_mask'
+dataset = 'CESM_dataset' # 'Pelvis_2.1_repo_no_mask'
 run_dir = os.path.join(report_dir, dataset, exp_name)
-modalities = "MR_nonrigid_CT,MR_MR_T2"
+modalities = 'LE,DES' # "MR_nonrigid_CT,MR_MR_T2"
 modalities = (modalities.replace(" ", "").split(",")) # Convert string to list.
 
 with open(os.path.join(run_dir, 'metric.jsonl'), 'rb') as f:

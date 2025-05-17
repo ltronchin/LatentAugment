@@ -53,6 +53,7 @@ class LatentAugment(BaseAugment):
             the modified parser.
 
         """
+
         parser.add_argument('--model_dir', help='Where to load the StyleGAN/MappingNetwork pretrained model', metavar='DIR', required=True)
         parser.add_argument('--interim_dir', help='Where to save/load the data', metavar='DIR', required=True)
         parser.add_argument('--gpu_ids_aug', type=str, default='0', help='gpu ids: e.g. 0  0,1,2, 0,2. use -1 for CPU')

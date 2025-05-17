@@ -53,17 +53,17 @@ metrics_cache = True # Options to upload the cache real features for FID
 model_dir = './models/'
 report_dir = './reports/'
 exp_name = 'aug_r' #'aug_pr_ablation' # 'aug_pr'
-dataset = 'Pelvis_2.1_repo_no_mask'
+dataset = 'CESM_dataset' # 'Pelvis_2.1_repo_no_mask'
 run_dir = os.path.join(report_dir, dataset, exp_name)
 util_path.create_dir(run_dir)
-dataset_name = 'Pelvis_2.1_repo_no_mask-num-375_train-0.70_val-0.20_test-0.10'
-modalities = "MR_nonrigid_CT,MR_MR_T2"
+dataset_name = 'CESM_dataset-num-105_train-0.70_val-0.20_test-0.10' # 'Pelvis_2.1_repo_no_mask-num-375_train-0.70_val-0.20_test-0.10'
+modalities =  'LE,DES' # "MR_nonrigid_CT,MR_MR_T2"
 modalities = (modalities.replace(" ", "").split(",")) # Convert string to list.
 stylegan_dir = os.path.join(
         model_dir, dataset, "training-runs", dataset_name,  util_general.parse_separated_list_comma(modalities)
 )
-stylegan_exp_name = '00003'
-stylegan_pkl_name = 'network-snapshot-005320.pkl'
+stylegan_exp_name =  '00001' # '00003'
+stylegan_pkl_name = 'network-snapshot-004500.pkl' # 'network-snapshot-005320.pkl'
 
 # Load StyleGANAN
 snapshot_data = load_stylegan(stylegan_dir, stylegan_exp_name, stylegan_pkl_name)
@@ -71,7 +71,7 @@ G_kwargs = {'truncation_psi': 1.0}
 
 # Load training opt (contains the path to the training data)
 dataset_kwargs = dnnlib.EasyDict(snapshot_data['training_set_kwargs'])
-dataset_kwargs['path'] = './data/interim/Pelvis_2.1_repo_no_mask/Pelvis_2.1_repo_no_mask-num-375_train-0.70_val-0.20_test-0.10.zip'
+dataset_kwargs['path'] =  './data/interim/CESM_dataset/CESM_dataset-num-105_train-0.70_val-0.20_test-0.10'  # './data/interim/Pelvis_2.1_repo_no_mask/Pelvis_2.1_repo_no_mask-num-375_train-0.70_val-0.20_test-0.10.zip'
 
 n_img_aug = 10000
 exps = [x for x in os.listdir(os.path.join(report_dir, dataset)) if f'augment_0-n_imgs_{n_img_aug}' in x]

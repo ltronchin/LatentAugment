@@ -32,24 +32,44 @@ def fromdir_tolist(datadir):
     return data
 
 # Parameters
-dataset = 'Pelvis_2.1_repo_no_mask'
-dataset_w_name = 'Pelvis_2.1_repo_no_mask-num-375_train-0.70_val-0.20_test-0.10-expinv_00001'
+
+
+'CESM_dataset-num-105_train-0.70_val-0.20_test-0.10'
+
+dataset =  'CESM_dataset' # 'Pelvis_2.1_repo_no_mask'
+
+if dataset == 'Pelvis_2.1_repo_no_mask':
+    dataset_w_name = 'Pelvis_2.1_repo_no_mask-num-375_train-0.70_val-0.20_test-0.10-expinv_00001'
+    mode = 'CT' #CT
+    if mode=='MRI':
+        analysis_augment = 'analysis_augment_MRI_umap' # 'analysis_augment_MRI_umap'
+        mode_name = 'B'
+    elif mode=='CT':
+        analysis_augment = 'analysis_augment_CT_umap'# 'analysis_augment_CT_umap'
+        mode_name = 'A'
+    else:
+        raise NotImplementedError
+elif dataset == 'CESM_dataset':
+    dataset_w_name = 'CESM_dataset-num-105_train-0.70_val-0.20_test-0.10-expinv_00001'
+    mode = 'LE' # DES
+    if mode=='DES':
+        analysis_augment = 'analysis_augment_DES_umap' # 'analysis_augment_MRI_umap'
+        mode_name = 'B'
+    elif mode=='LE':
+        analysis_augment = 'analysis_augment_LE_umap'# 'analysis_augment_CT_umap'
+        mode_name = 'A'
+    else:
+        raise NotImplementedError
+else:
+    raise NotImplementedError
+
+
 checkpoints_dir = '/home/lorenzo/LatentAugment/reports/'
 interim_dir = '/home/lorenzo/LatentAugment/data/interim/'
 # the two experiments to compare
 exp_latent_augment =  'latent_augment_umap-n_imgs_10000-opt_lr_0.01-opt_num_epochs_12-w_latent_0.001-w_pix_0.1-w_lpips_10-w_disc_0.01' # 'latent_augment_umap-n_imgs_10000-opt_lr_0.01-opt_num_epochs_6-w_latent_0.01-w_pix_0.3-w_lpips_3-w_disc_0.3'
 exp_randomgan_augment = 'random_augment_umap-n_imgs_10000-truncation_psi_1.0'
 dump_to_disk = True
-
-mode = 'CT' #CT
-if mode=='MRI':
-    analysis_augment = 'analysis_augment_MRI_umap' # 'analysis_augment_MRI_umap'
-    mode_name = 'B'
-elif mode=='CT':
-    analysis_augment = 'analysis_augment_CT_umap'# 'analysis_augment_CT_umap'
-    mode_name = 'A'
-else:
-    raise NotImplementedError
 
 batch_size = 16
 

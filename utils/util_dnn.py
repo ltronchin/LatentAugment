@@ -23,3 +23,4 @@ def load_network_pkl(f):
 class _LegacyUnpickler(pickle.Unpickler):
     def find_class(self, module, name):
         return super().find_class(module, name)
+

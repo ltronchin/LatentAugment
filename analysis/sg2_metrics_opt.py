@@ -219,7 +219,8 @@ def objective_precision(trial):
 
 if __name__ == '__main__':
     # checkpoint_dir = "./reports/Pelvis_2.1_repo_no_mask/aug_pr_optuna_val"
-    checkpoint_dir = "./reports/Pelvis_2.1_repo_no_mask/aug_r_optuna_val"
+    # checkpoint_dir = "./reports/Pelvis_2.1_repo_no_mask/aug_r_optuna_val"
+    checkpoint_dir = "./reports/CESM_dataset/aug_r_optuna_val"
     try:
         with open(os.path.join(checkpoint_dir, 'optuna_study.pickle'), 'rb') as handle:
             study = pickle.load(handle)

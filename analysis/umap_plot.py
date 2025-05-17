@@ -24,16 +24,28 @@ rc('font', **{'family': 'serif', 'serif': ['Computer Modern']})
 rc('text', usetex=True)
 
 # Parameters
-dataset = 'Pelvis_2.1_repo_no_mask'
+
+dataset = 'CESM_dataset' # 'Pelvis_2.1_repo_no_mask'
 checkpoints_dir = './reports/'
 n_imgs = 100
 full_inverted_set = True
 
-mode = 'CT' #CT
-if mode=='MRI':
-    analysis_augment = 'analysis_augment_MRI_umap'
-elif mode=='CT':
-    analysis_augment = 'analysis_augment_CT_umap'
+if dataset == 'Pelvis_2.1_repo_no_mask':
+    mode = 'CT' #CT
+    if mode=='MRI':
+        analysis_augment = 'analysis_augment_MRI_umap'
+    elif mode=='CT':
+        analysis_augment = 'analysis_augment_CT_umap'
+    else:
+        raise NotImplementedError
+elif dataset == 'CESM_dataset':
+    mode = 'LE'  # DES
+    if mode == 'LE':
+        analysis_augment = 'analysis_augment_LE_umap'
+    elif mode == 'DES':
+        analysis_augment = 'analysis_augment_DES_umap'
+    else:
+        raise NotImplementedError
 else:
     raise NotImplementedError
 
